@@ -1,0 +1,10 @@
+apollo:
+  cacheDir: /opt/data/                       #配置本地配置缓存目录
+  cluster: default                           #指定使用哪个集群的配置
+  meta: ${APOLLO_META:http://apl-config-to.energymost.net}       #DEV环境配置中心地址
+  autoUpdateInjectedSpringProperties: true   #是否开启 Spring 参数自动更新
+  bootstrap:
+    enabled: true                            #是否开启 Apollo
+    namespaces: application                  #设置 Namespace
+    eagerLoad:
+      enabled: false
