@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51714730-5113-4c34-a24f-cf2fc414522d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/java/com/se/ds/comp/shell/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/java/com/se/ds/comp/shell/bean/BoardContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/java/com/se/ds/comp/shell/polkaDataMigrate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comp-fa-shell/src/main/java/com/se/ds/comp/shell/polkaDataMigrate.java" beforeDir="false" afterPath="$PROJECT_DIR$/comp-fa-shell/src/main/java/com/se/ds/comp/shell/polkaDataMigrate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +103,17 @@
       <updated>1697596110008</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

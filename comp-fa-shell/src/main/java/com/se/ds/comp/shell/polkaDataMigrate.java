@@ -3,8 +3,8 @@ package com.se.ds.comp.shell;
 import com.alibaba.fastjson2.JSONObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
@@ -46,11 +46,12 @@ public class polkaDataMigrate {
             MongoClient mongoClient = getMongoClient();
             MongoDatabase database = mongoClient.getDatabase(MONGO_DATABASE);
             MongoCollection<Document> collection = database.getCollection(MONGO_COLLECTION);
-            FindIterable<Document> documents = collection.find();
+            MongoCursor<Document> iterator = collection.find().iterator();
             Long totalNumber = collection.countDocuments();
             log.warn("插入任务开始,需要执行的数据量:{},startTime:{}", totalNumber, System.currentTimeMillis());
             Long startTime = System.currentTimeMillis();
-            for (Document document : documents) {
+            while (iterator.hasNext()){
+                Document document = iterator.next();
                 Document data = (Document) document.get("_v");
                 String id = data.getString("Id");
                 Object contentObj = data.get("Content");
@@ -63,13 +64,13 @@ public class polkaDataMigrate {
                     failCount += 1;
                 }
             }
-            log.warn("插入成功,个数:{},耗时:{}ms", successCount, System.currentTimeMillis() - startTime);
+            log.warn("插入完成,成功总数:{},耗时:{}ms", successCount, System.currentTimeMillis() - startTime);
             connection.close();
             mongoClient.close();
         } catch (Exception e) {
             log.error("流程错误,error:{}", e);
         } finally {
-            log.warn("插入结束,successCount:{},failCount:{}", successCount, failCount);
+            log.warn("插入任务结束,successCount:{},failCount:{}", successCount, failCount);
             System.exit(0);
         }
     }
@@ -82,18 +83,15 @@ public class polkaDataMigrate {
             statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             statement.setString(2, content);
-            connection.setAutoCommit(false);
             statement.executeUpdate();
-            connection.commit();
             statement.close();
             result = true;
         } catch (SQLException e) {
-            log.error("插入失败", e);
+            log.error("插入记录失败", e);
             try {
-                connection.rollback();
                 statement.close();
             } catch (SQLException ex) {
-                log.error("回滚失败: {}", ex);
+                log.error("关闭statement失败: {}", ex);
             }
         }
         return result;
