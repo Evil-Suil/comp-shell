@@ -153,30 +153,6 @@
     </dependencies>
 
     <build>
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-jar-plugin</artifactId>-->
-<!--                <version>3.2.0</version>-->
-<!--                <configuration>-->
-<!--                    <archive>-->
-<!--                        <manifest>-->
-<!--                            <addClasspath>true</addClasspath>-->
-<!--                            <mainClass>com.se.ds.comp.shell.polkaDataMigrate</mainClass> &lt;!&ndash; 替换为你的主类 &ndash;&gt;-->
-<!--                        </manifest>-->
-<!--                    </archive>-->
-
-<!--                    <annotationProcessorPaths>-->
-<!--                        <path>-->
-<!--                                <groupId>org.projectlombok</groupId>-->
-<!--                                <artifactId>lombok</artifactId>-->
-<!--                                <version>${lombok.version}</version>-->
-<!--                        </path>-->
-<!--                    </annotationProcessorPaths>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
-<!--        </plugins>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -185,10 +161,10 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.se.ds.comp.shell.polkaDataMigrate</mainClass> <!-- 替换为你的主类 -->
+                            <mainClass>com.se.ds.comp.shell.polkaDataMigrateJson</mainClass> <!-- 替换为你的主类 -->
                         </manifest>
                     </archive>
-                    <finalName>polkaDataMigrate</finalName>
+                    <finalName>polkaDataMigrateJson</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
